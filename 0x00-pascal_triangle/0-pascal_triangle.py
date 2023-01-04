@@ -1,18 +1,43 @@
-#!/usr/bin/env python 3
-"""Create a function def pascal_triangle(n):
-that returns a list of lists of integers"""
+#!/usr/bin/python3
+"""
+This is a Python script that generates a Pascal's triangle of a specified \
+size using a function called pascal_triangle. The triangle is printed to \
+the console using a helper function called print_triangle.
+"""
+
 
 def pascal_triangle(n):
-    list1 = [] #an empty list
+    """
+    Returns a list of lists of integers representing the Pascal's
+    triangle of n.
+    Args:
+        n (int): The number of rows in the triangle.
+    Returns:
+        List[List[int]]: A list of lists of integers representing
+        the Pascal's triangle
+    """
+    # Initialize an empty list to store the rowa of the triangle
+    result = []
+
+    # Iterate through each row in the triangle
     for i in range(n):
-        list1.append([])
-        list1[i].append(1)
-        for j in range(1, i):
-            list1[i].append(list1[i - 1][j - 1] + list1[i - 1][j])
-        if(n <= 0):
-            list1[i].append(1)
-    for i in range(n):
-        print(" " * (n - i), end = " ", sep = " ")
-        for j in range(0, i + 1):
-            print('{0:6}'.format(list1[i][j]), end = " ", sep = " ")
+        # Initialize an empty list to store the elements in the row
+        row = []
+
+        # Iterate through each element in the row
+        for j in range(i + 1):
+            """If the element is at the beginning or end of the row, \
+set its value to 1"""
+            if j == 0 or j == i:
+                row.append(1)
+            # Otherwise, set its value to the sum of the values in
+            # the previous row at position j and j - 1
+            else:
+                row.append(result[i - 1][j] + result[i - 1][j - 1])
+
+        # Add the row to the result list
+        result.append(row)
+
+    # Return the result list
+    return result
 
