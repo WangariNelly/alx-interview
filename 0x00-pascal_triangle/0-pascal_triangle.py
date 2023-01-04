@@ -40,4 +40,3 @@ set its value to 1"""
 
     # Return the result list
     return result
-
