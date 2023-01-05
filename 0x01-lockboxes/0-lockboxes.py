@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """An algorithm to determine lockboxes"""
 
+
 def canUnlockAll(boxes):
     unlocked = [0]
     for box_id, box in enumerate(boxes):
